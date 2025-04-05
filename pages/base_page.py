@@ -13,7 +13,7 @@ from selenium.webdriver.common.by import By
 # и Pycharm понимал лучше.
 
 class BasePage:
-    base_url = 'https://erp-test.karman24.ru'
+    base_url = '.ru'
     page_url = None
 
     def __init__(self, driver: WebDriver):

@@ -7,9 +7,9 @@ from selenium.webdriver.common.by import By
 def test_add_gold_no_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('.ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -31,9 +31,9 @@ def test_add_gold_no_contract(login_page, lead_page, product_page, contract_сre
 def test_add_gold_qr_no_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -55,9 +55,9 @@ def test_add_gold_qr_no_contract(login_page, lead_page, product_page, contract_�
 def test_add_silver_no_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -79,9 +79,9 @@ def test_add_silver_no_contract(login_page, lead_page, product_page, contract_с
 def test_add_laptop_no_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -103,9 +103,9 @@ def test_add_laptop_no_contract(login_page, lead_page, product_page, contract_с
 def test_add_car_no_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_krasnix_partisan()

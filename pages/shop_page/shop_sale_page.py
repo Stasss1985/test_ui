@@ -16,7 +16,7 @@ class ShopLoc():
     # локаторы выбора офиса в фильтре
     OFFICE_FIELD_OPEN = (By.CSS_SELECTOR, '.p-sidebar-content > div:nth-child(6) > div > div')
     OFFICE_FIELD_CHOSE = (By.CLASS_NAME, 'p-multiselect-filter.p-inputtext.p-component')
-    OFFICE_CHOSE = (By.CSS_SELECTOR, '[aria-label="Краснодар-1-го Мая ЛОМБАРД (Карман)"]')
+    OFFICE_CHOSE = (By.CSS_SELECTOR, '[aria-label="ЛОМБАРД"]')
     # локаторы статуса в фильтре
     STATUS_FIELD_OPEN = (By.CSS_SELECTOR, '.p-sidebar-content > div:nth-child(8) > div > div')
     STATUS_FIELD_CHOSE = (By.CLASS_NAME, 'p-multiselect-filter.p-inputtext.p-component')

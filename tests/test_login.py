@@ -8,9 +8,9 @@ def test_login_admin2(login_page):
     login_page.open_page()
     try:
         with allure.step('enter correct login and password'):
-            login_page.fill_login_form_good('krivko.su@codeagen.ru', 'DLNKsfd3214$%23')
+            login_page.fill_login_form_good('.ru', '$%23')
         with allure.step('Check correct url'):
-            login_page.check_expected_url('https://erp-test.karman24.ru/')
+            login_page.check_expected_url('.ru/')
     except Exception as e:
         login_page.take_screenshot()
         raise e  # Повторно вызываем исключение
@@ -22,7 +22,7 @@ def test_login_admin2(login_page):
 def test_login_short_password2(login_page):
     login_page.open_page()
     try:
-        login_page.fill_login_form('krivko.su@codeagency.ru', 'DLNKs')
+        login_page.fill_login_form('.ru', 's')
         login_page.check_error_alert_is('Пароль не может быть ')
     except Exception as e:
         login_page.take_screenshot()
@@ -34,9 +34,9 @@ def test_login_short_password2(login_page):
 def test_login_admin(login_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('.ru', '%23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     login_page.close_driver()
 
@@ -44,7 +44,7 @@ def test_login_admin(login_page):
 @allure.feature('Negative')
 def test_login_short_password(login_page):
     login_page.open_page()
-    login_page.fill_login_form('krivko.su@codeagency.ru', 'DLNKs')
+    login_page.fill_login_form('.ru', 'Ks')
     login_page.check_error_alert_is(
         'Пароль не может быть короче 6 символов')
     login_page.close_driver()
@@ -53,7 +53,7 @@ def test_login_short_password(login_page):
 @allure.feature('Negative')
 def test_login_incorrect(login_page):
     login_page.open_page()
-    login_page.fill_login_form('krivko.su@codeage.ru', 'DLNKsfd3214$%23')
+    login_page.fill_login_form('.ru', '%23')
     login_page.check_error_alert_is(
         'Ошибка при авторизации')
     login_page.close_driver()
@@ -62,7 +62,7 @@ def test_login_incorrect(login_page):
 @allure.feature('Negative')
 def test_login_password_incorrect(login_page):
     login_page.open_page()
-    login_page.fill_login_form('krivko.su@codeagency.ru', 'DLNKsfd3')
+    login_page.fill_login_form('.ru', 'd3')
     login_page.check_error_alert_is(
         'Неверные логин или пароль.')
     login_page.close_driver()
@@ -71,7 +71,7 @@ def test_login_password_incorrect(login_page):
 @allure.feature('Negative')
 def test_login_password_end_login_incorrect(login_page):
     login_page.open_page()
-    login_page.fill_login_form('krivko.su@code.ru', 'DLNKsfd3')
+    login_page.fill_login_form('.ru', 'd3')
     login_page.check_error_alert_is(
         'Ошибка при авторизации')
     login_page.close_driver()
@@ -100,10 +100,10 @@ def test_login_password_end_login_spase(login_page):
 #@pytest.mark.skip('Тесты с параметризацией, не стабилны, пропускаем их')
 #@allure.feature('Negative')
 #@pytest.mark.parametrize("login, password, expected_error", [
-    #('krivko.su@codeagency.ru', 'DLNKs', 'Пароль не может быть короче 6 символов'),
-    #('krivko.su@codeage.ru', 'DLNKsfd3214$%23', 'Ошибка при авторизации'),
-    #('krivko.su@codeagency.ru', 'DLNKsfd3', 'Неверные логин или пароль.'),
-    #('krivko.su@code.ru', 'DLNKsfd3', 'Ошибка при авторизации'),
+    #('.ru', 's', 'Пароль не может быть короче 6 символов'),
+    #('.ru', '%23', 'Ошибка при авторизации'),
+    #('.ru', 'd3', 'Неверные логин или пароль.'),
+    #('.ru', '3', 'Ошибка при авторизации'),
     #('', '', 'Это обязательное поле'),
     #(' ', ' ', 'Это обязательное поле')
 #])

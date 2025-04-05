@@ -78,38 +78,3 @@ def do_operation_with_contract_page(driver):
 @pytest.fixture()
 def shop_sale_page(driver):
     return ShopSalePage(driver)
-
-
-@pytest.fixture
-def create_old_lead_silver_cash_contract(login_page, lead_page, product_page, contract_сreate_page):
-    login_page.open_page()
-    with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
-    with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
-    login_page.take_screenshot()
-    # Смена офиса
-    lead_page.change_office_1_maya()
-    lead_page.take_screenshot()
-    # Переход к созданию лида
-    lead_page.navigate_to_lead_create()
-    lead_page.take_screenshot()
-    # Выбор клиента из базы
-    lead_page.chose_old_client_to_lead()
-    lead_page.take_screenshot()
-    # Добавление продукта
-    product_page.add_product_silver()
-    product_page.take_screenshot()
-    # Выбор тарифа
-    contract_сreate_page.contract_tariff_chose_1()
-    contract_сreate_page.take_screenshot()
-    # Создание договора
-    contract_сreate_page.create_operation_create_contract()
-    contract_сreate_page.take_screenshot()
-    # Печать документа
-    contract_сreate_page.print_document()
-    contract_сreate_page.take_screenshot()
-    # Печать чека
-    contract_сreate_page.print_check()
-    # Проверка статуса создания сделки
-    contract_сreate_page.compare_text_status()

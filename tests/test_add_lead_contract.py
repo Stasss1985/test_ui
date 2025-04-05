@@ -6,9 +6,9 @@ import pytest
 def test_create_old_lead_gold_cash_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -42,9 +42,9 @@ def test_create_old_lead_gold_cash_contract(login_page, lead_page, product_page,
 def test_create_old_lead_silver_cash_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('.ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -78,9 +78,9 @@ def test_create_old_lead_silver_cash_contract(login_page, lead_page, product_pag
 def test_create_old_lead_laptop_cash_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('.ru', '23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()
@@ -117,9 +117,9 @@ def test_create_old_lead_laptop_cash_contract(login_page, lead_page, product_pag
 def test_create_new_client_gold_cash_contract(login_page, lead_page, product_page, contract_сreate_page):
     login_page.open_page()
     with allure.step('enter correct login and password'):
-        login_page.fill_login_form_good('krivko.su@codeagency.ru', 'DLNKsfd3214$%23')
+        login_page.fill_login_form_good('.ru', '%23')
     with allure.step('Check correct url'):
-        login_page.check_expected_url('https://erp-test.karman24.ru/')
+        login_page.check_expected_url('.ru/')
     login_page.take_screenshot()
     # Смена офиса
     lead_page.change_office_1_maya()

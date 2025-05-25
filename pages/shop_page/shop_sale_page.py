@@ -9,16 +9,16 @@ class ShopLoc():
     SHOP_HREF = (By.CSS_SELECTOR, 'a[href="/product/store"]')
     BUTTON_OPEN_FILTER = (
         By.CLASS_NAME, 'p-button.p-component.p-button-icon-only.p-speeddial-button.p-button-rounded.p-speeddial-rotate')
-    CATEGORY_FIELD_OPEN = (By.CLASS_NAME, 'p-multiselect.p-component.p-inputwrapper')
+    CATEGORY_OFFICE_STATUS_FIELDS_OPEN = (By.CLASS_NAME, 'p-multiselect.p-component.p-inputwrapper')
     CATEGORY_FIELD_CHOSE = (By.CLASS_NAME, 'p-multiselect-filter.p-inputtext.p-component')
     CATEGORY_TECHNIQUE_CHOSE = (By.CSS_SELECTOR, '[aria-label="  Техника"]')
     FIELD_CLOSE = (By.CLASS_NAME, 'p-multiselect-close.p-link')
     # локаторы выбора офиса в фильтре
-    OFFICE_FIELD_OPEN = (By.CSS_SELECTOR, '.p-sidebar-content > div:nth-child(6) > div > div')
+    OFFICE_FIELD_OPEN = (By.XPATH, '/html/body/div[2]/div/div[2]/div[7]/div/div/div[2]/div')
     OFFICE_FIELD_CHOSE = (By.CLASS_NAME, 'p-multiselect-filter.p-inputtext.p-component')
-    OFFICE_CHOSE = (By.CSS_SELECTOR, '[aria-label="ЛОМБАРД"]')
+    OFFICE_CHOSE = (By.CSS_SELECTOR, '[aria-label="Краснодар-1-го Мая ЛОМБАРД (Карман)"]')
     # локаторы статуса в фильтре
-    STATUS_FIELD_OPEN = (By.CSS_SELECTOR, '.p-sidebar-content > div:nth-child(8) > div > div')
+    STATUS_FIELD_OPEN = (By.CSS_SELECTOR, '.p-sidebar-content > div:nth-child(10) > div > div')
     STATUS_FIELD_CHOSE = (By.CLASS_NAME, 'p-multiselect-filter.p-inputtext.p-component')
     STATUS_CHOSE = (By.CSS_SELECTOR, '[aria-label="На витрине"]')
     FILTER_CLOSE = (By.CLASS_NAME, 'p-sidebar-close.p-sidebar-icon.p-link')
@@ -50,12 +50,17 @@ class ShopSalePage(BasePage):
     def filter_for_sale_product_in_shop(self):
         self.click(self.loc.BUTTON_OPEN_FILTER)
         # Выбираем категорию - техника
-        self.click(self.loc.CATEGORY_FIELD_OPEN)
+        category_office_status_fields_open = self.find_all(self.loc.CATEGORY_OFFICE_STATUS_FIELDS_OPEN)
+        CATEGORY_FIELD_OPEN = category_office_status_fields_open[0]
+        OFFICE_FIELD_OPEN = category_office_status_fields_open[1]
+        STATUS_FIELD_OPEN = category_office_status_fields_open[2]
+        time.sleep(2)
+        CATEGORY_FIELD_OPEN.click()
         self.send_keys(self.loc.CATEGORY_FIELD_CHOSE, 'техника')
         self.click(self.loc.CATEGORY_TECHNIQUE_CHOSE)
         self.click(self.loc.FIELD_CLOSE)
         # Выбираем офис 1 мая
-        self.click(self.loc.OFFICE_FIELD_OPEN)
+        OFFICE_FIELD_OPEN.click()
         self.send_keys(self.loc.OFFICE_FIELD_CHOSE, '1')
         self.wait_clickable(self.loc.OFFICE_CHOSE)
         self.click(self.loc.OFFICE_CHOSE)
@@ -64,7 +69,7 @@ class ShopSalePage(BasePage):
         self.scroll_by(200)
         time.sleep(2)
         # Выбираем статус - на витрине
-        self.click(self.loc.STATUS_FIELD_OPEN)
+        STATUS_FIELD_OPEN.click()
         self.send_keys(self.loc.STATUS_FIELD_CHOSE, 'На витрине')
         self.click(self.loc.STATUS_CHOSE)
         self.click(self.loc.FIELD_CLOSE)
@@ -77,6 +82,7 @@ class ShopSalePage(BasePage):
         time.sleep(2)
         all_btn_open_menu_in_line = self.find_all(self.loc.BTN_OPEN_MENU_IN_LINE)
         print(all_btn_open_menu_in_line)
+        time.sleep(2)
         all_btn_open_menu_in_line[0].click()
         # time.sleep(3)
         self.wait_clickable(self.loc.BTN_CHOSE_SALE_IN_MENU)

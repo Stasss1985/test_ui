@@ -1,6 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from pages.lead_page.contract_сreate_page import ContractСreateLoc
+from pages.lead_page.contract_сreate_page import ContractCreateLoc
 import time
 
 
@@ -13,7 +13,7 @@ class ContractLoc():
 
 class DoOperationContractPage(BasePage):
     loc = ContractLoc
-    locc = ContractСreateLoc
+    locc = ContractCreateLoc
 
     def contract_create_operation_buy_back(self):
         # Прокрутка до кнопки создать операцию

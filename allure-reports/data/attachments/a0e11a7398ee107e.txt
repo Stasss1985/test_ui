@@ -1,0 +1,15 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 There is no [win64] chromedriver "136.0.7103.94" for browser google-chrome "136.0.7103" in cache
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 WebDriver version 136.0.7103.94 selected
+[32mINFO    [0m WDM:logger.py:11 Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/win32/chromedriver-win32.zip
+[32mINFO    [0m WDM:logger.py:11 About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/win32/chromedriver-win32.zip
+[32mINFO    [0m WDM:logger.py:11 Driver downloading response is 200
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Driver has been saved in cache [C:\Users\Stass\.wdm\drivers\chromedriver\win64\136.0.7103.94]
+[32mINFO    [0m root:test_1_sale_in_shop.py:8 Старт проверки "Продажа техники из магазина за наличку"
+[32mINFO    [0m root:test_1_sale_in_shop.py:12 Переход в магазин
+[32mINFO    [0m root:test_1_sale_in_shop.py:16 Открытие фильтра справа и сортировка для продажи товаров (не ЮИ)
+[32mINFO    [0m root:test_1_sale_in_shop.py:20 Продажа товара из магазина (не ЮИ)

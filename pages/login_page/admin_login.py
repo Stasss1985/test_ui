@@ -37,11 +37,6 @@ class AdminLogin(BasePage):
         password_field.send_keys(password)
         self.click(self.loc.BUTTON)
 
-    # def check_error_alert_is(self, text):
-    # WebDriverWait(self.driver, 5).until(project_ec.text_is_not_empty_in_element(self.loc.error_alert_loc))
-    # error_alert = self.find(self.loc.error_alert_loc)
-    # assert error_alert.text == text
-
     def check_error_alert_is(self, expected_error):
         WebDriverWait(self.driver, 5).until(project_ec.text_is_not_empty_in_element(self.loc.ERROR_ALERT))
         error_alert = self.find(self.loc.ERROR_ALERT)

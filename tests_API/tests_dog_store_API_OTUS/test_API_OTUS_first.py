@@ -75,8 +75,8 @@ def test_post_autoriz():
         "id": 5654,
         
         }
-    headers = {"Autorization": "Bearer eyJ0eXAiOiJKV1QiLCJ}
-    r = requests.post('https://e.ru/oauth/token',
+    headers = {"Autorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZDEzMGIxZDE2N2Y1NWFhMWM3Zjk4ZDE2ZDk5YWYwY2IyOGY1MmU1N2IxZTU1MDIwMTRjOGQyYmJmNDdjN2IxNzAwYjIyMmQzYjllMDdkMDgiLCJpYXQiOjE3NDI5ODg0ODIuODAxOTU3LCJuYmYiOjE3NDI5ODg0ODIuODAxOTU5LCJleHAiOjE3NzQ1MjQ0ODIuNzk2NDgyLCJzdWIiOiIzMzMiLCJzY29wZXMiOlsiKiJdfQ.agPRdgjw - wVWx8dAaxppZKTgGQUCESI5qJgU90hCW7qDQ3uZ52NSzBz94WynDZcelGK2kHd2ssKdTSsNjJm2HX5bR6KcfIqm9kH9rSKJKIMyY - gAMvs0l4mib - 9 kOEuxI9akQ4XfdDYHCustTUEStyyw - oFNbMaJefMU7bT8QSmpsrOsSGV66iXG8cPGSfklExBuaEhVIz2Inp4IBhLstY08H6MVND9LemR5PKKrKO - M7_QVEkkG1yfGVXjzcggsPDtg2hZtac52Bj5OP8o4 - HSIF2 - N9Jj3pgZDGUKsKwkG - 7 gxJROq8x00w6FrYzHghIB - mudJFQAE1TTdfJqwCnpnllQErni2cI9JMJ41Mj4qKpuOYixcjvmfHQ720pI_jRreXq4bC9qyVBaK4XCmpmEvF7xAo7dhPOs2WW29dYyd2qFzdFaQp7LOK - tPxuRGtNqU - CtVQTJFBk0YKuY1FJskIYFA7qcXK5BSfw2OH - EDwk8ALbOlpOvCvEenegBht_d_R1RoavndzU0cJxhLjVHWTKSsYSGuwy7kftSHAiuvDH01Xs5ddaTxqU5r13GF9Q10pr3zuSmtfE9gfhWxoteoyUeScf0qHq6IFcCvM6BsDl99OY6uYiX5vdBuDsGNUD7233hPm7_z - nK6z6BrDFU1le81WvO6TBacJvY90xo"}
+    r = requests.post('https://erp-api-test.karman24.ru/oauth/token',
                       json=body,
                       headers=headers)  # авторизация по accesstoken или "special-key"
 

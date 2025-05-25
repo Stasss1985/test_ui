@@ -1,0 +1,7 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Driver [C:\Users\Stass\.wdm\drivers\chromedriver\win64\136.0.7103.94\chromedriver-win32/chromedriver.exe] found in cache
+[31m[1mERROR   [0m root:base_page.py:58 Element with locator ('css selector', '[aria-label="Далее"]') not clickable.
+[31m[1mERROR   [0m root:base_page.py:51 Element with locator ('css selector', '#instanceV\\.756 > input') not visible.
+[31m[1mERROR   [0m root:base_page.py:144 Element with locator ('css selector', '.p-speeddial-action-icon.pi.pi-user-plus') not clickable after 30 seconds.

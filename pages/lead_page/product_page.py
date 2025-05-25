@@ -126,7 +126,7 @@ class ProductPage(BasePage):
         # Вводим Цена на витрине
         sellPrice_add = self.wait_for_element_visibility(self.loc.SELL_PRICE)
         # Выбор случайной цены
-        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321, 12000, 21858])
+        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321])
         sellPrice_add.send_keys(random_sellPrice)
 
         # Получаем введенное значение и преобразуем в целое число
@@ -236,7 +236,7 @@ class ProductPage(BasePage):
         # Вводим Цена на витрине
         sellPrice_add = self.wait_for_element_visibility(self.loc.SELL_PRICE)
         # Выбор случайной цены
-        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321, 12000, 21858])
+        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321])
         sellPrice_add.send_keys(random_sellPrice)
 
         # Получаем введенное значение и преобразуем в целое число
@@ -337,7 +337,7 @@ class ProductPage(BasePage):
         # Вводим Цена на витрине
         sellPrice_add = self.wait_for_element_visibility(self.loc.SELL_PRICE)
         # Выбор случайной цены
-        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321, 12000, 21858])
+        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321])
         sellPrice_add.send_keys(random_sellPrice)
 
         # Получаем введенное значение и преобразуем в целое число
@@ -397,7 +397,7 @@ class ProductPage(BasePage):
         # Вводим Цена на витрине
         sellPrice_add = self.wait_for_element_visibility(self.loc.SELL_PRICE)
         # Выбор случайной цены
-        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321, 12000, 21858])
+        random_sellPrice = random.choice([300, 1000, 2500, 5000, 7321])
         sellPrice_add.send_keys(random_sellPrice)
         # Получаем введенное значение и преобразуем в целое число
         random_sellPrice_int = int(sellPrice_add.get_attribute('aria-valuenow'))

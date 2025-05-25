@@ -5,7 +5,7 @@ from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class ContractСreateLoc():
+class ContractCreateLoc():
     # Селекторы для выбора тарифа
     MENU_ITEM_BTN_OPEN = (By.CSS_SELECTOR,
                           '[class="p-button p-component p-button-icon-only p-speeddial-button p-button-rounded p-speeddial-rotate p-button-secondary"]')
@@ -30,8 +30,8 @@ class ContractСreateLoc():
     XREF_GO_TO_CONTRACT = (By.CSS_SELECTOR, ".container-fluid .w-100 a")
 
 
-class ContractСreatePage(BasePage):
-    loc = ContractСreateLoc
+class ContractCreatePage(BasePage):
+    loc = ContractCreateLoc
 
     def contract_tariff_chose_1(self):
         # Раскрываем круглые кнопки в нижнем правом углу
@@ -39,6 +39,7 @@ class ContractСreatePage(BasePage):
         menu_btn_ope.click()
         # Выбираем "Создать лид и сделку" круглая кнопка в нижнем правом углу
         menu_item_btn_chose = self.wait_clickable(self.loc.MENU_ITEM_BTN_CHOSE)
+        time.sleep(5)
         menu_item_btn_chose.click()
         # Открываем тарифы
         contract_tariff_id_find = self.find(self.loc.CONTRACT_TARIFF_ID_FIND)
@@ -89,24 +90,28 @@ class ContractСreatePage(BasePage):
         time.sleep(2)
 
     def print_document(self):
-        # Сохранение текущего окна:
-        self.wait_clickable(self.loc.PRINT_DOCUMENT_BUTTON)
-        # Клик по кнопки печать документа
-        time.sleep(3)
+        original_window = self.driver.current_window_handle  # Сохраняем текущее окно
+
+        # Клик по кнопке печати документа с явным ожиданием
         btn_print_dok = self.wait_clickable(self.loc.PRINT_DOCUMENT_BUTTON)
         btn_print_dok.click()
-        time.sleep(2)
-        WebDriverWait(self.driver, 20).until(EC.number_of_windows_to_be(2))
-        # Поиск всех окон
-        windows = self.driver.window_handles
-        # Переключение на последнее из тех, что открылось
-        self.driver.switch_to.window(windows[-1])
-        time.sleep(5)
-        # Закрытие окна
-        self.driver.close()
-        # Переключение на 1 ое окно
-        time.sleep(5)
-        self.driver.switch_to.window(windows[0])
+
+        # Ожидание появления нового окна (>= 2 окон)
+        WebDriverWait(self.driver, 40).until(lambda d: len(d.window_handles) >= 2)
+
+        # Находим новое окно
+        new_window = [window for window in self.driver.window_handles if window != original_window][0]
+
+        # Переключаемся на новое окно
+        self.driver.switch_to.window(new_window)
+
+        try:
+            # Ожидание загрузки содержимого в новом окне
+            WebDriverWait(self.driver, 40).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+        finally:
+            # Закрываем новое окно и возвращаемся в исходное
+            self.driver.close()
+            self.driver.switch_to.window(original_window)
 
     def print_check(self):
         # Клик распечатать чек

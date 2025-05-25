@@ -1,0 +1,9 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Driver [C:\Users\Stass\.wdm\drivers\chromedriver\win64\136.0.7103.94\chromedriver-win32/chromedriver.exe] found in cache
+[31m[1mERROR   [0m root:base_page.py:58 Element with locator ('class name', 'p-button.p-component.w-100') not clickable.
+[31m[1mERROR   [0m root:base_page.py:144 Element with locator <selenium.webdriver.remote.webelement.WebElement (session="50514ccaa95d0972470630bc6aed57ef", element="f.6B01A970BC43773AAF8159589FF7DCA8.d.1048FC23CF9DF57206222E2E3B4E7250.e.76224")> not clickable after 30 seconds.
+[31m[1mERROR   [0m root:base_page.py:40 Element with locator ('css selector', '[aria-posinset="1"]') not found.
+[31m[1mERROR   [0m root:base_page.py:58 Element with locator ('css selector', '[class="p-button p-component p-button-icon-only p-speeddial-button p-button-rounded p-speeddial-rotate"]') not clickable.
+[31m[1mERROR   [0m root:base_page.py:40 Element with locator ('id', 'name') not found.

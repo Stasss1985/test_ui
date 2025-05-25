@@ -1,0 +1,6 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Driver [C:\Users\Stass\.wdm\drivers\chromedriver\win64\136.0.7103.94\chromedriver-win32/chromedriver.exe] found in cache
+[31m[1mERROR   [0m root:base_page.py:40 Element with locator ('css selector', '[aria-posinset="1"]') not found.
+[31m[1mERROR   [0m root:base_page.py:40 Element with locator ('css selector', '#instanceV\\.6') not found.

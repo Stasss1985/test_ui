@@ -1,13 +1,11 @@
 from selenium.webdriver.support.wait import WebDriverWait
-from utils import project_ec
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 import time
 from selenium.webdriver.support import expected_conditions as EC
-from pages.lead_page.contract_сreate_page import ContractСreateLoc
+from pages.lead_page.contract_сreate_page import ContractCreateLoc
 import random
 from faker import Faker
-from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 fake = Faker()
@@ -60,17 +58,18 @@ class LeadLoc():
     DOCUMENT_DATE_OF_ISSUE = (By.CSS_SELECTOR, '#date')
     DEPARTMENT_CODE_FIELD = (By.ID, 'departmentCode')
     BY_WHOM_ISSUED_DOCUMENT = (By.CSS_SELECTOR, '[aria-posinset="1"]')
-    ADDRESS_OF_REGISTRATION = (By.CSS_SELECTOR, '.p-button.p-togglebutton.p-component.my-2 > input')
-    #ADDRESS_OF_REGISTRATION = (By.CSS_SELECTOR, '[aria-controls = "pv_id_364_list"]')
+    ADDRESS_OF_REGISTRATION = (By.XPATH, '/html/body/div[4]/div/div[2]/form/div[1]/div[7]/div/div[1]/input')
     MODAL_WINDOW = (By.CLASS_NAME, 'p-dialog-content')
-    CONTACT_TYPE = (By.CSS_SELECTOR, '[aria-controls="pv_id_115_list"]')
-    MOBILE_NUMBER_CHOSE = (By.ID, 'pv_id_115_0')
-    INPUT_MOBILE_NUMBER = (By.ID, 'value')
+    CONTACT_TYPE = (By.XPATH, '/html/body/div[4]/div/div[2]/form/div[1]/div[10]/div[1]/div/div[1]/div/div/div/span')
+    OPEN_MOBILE_NUMBER_CHOSE = (By.CSS_SELECTOR, '[aria-owns="pv_id_69_list"]')
+    MOBILE_NUMBER_CHOSE = (By.CSS_SELECTOR, '[aria-posinset="1"]')
+    INPUT_MOBILE_NUMBER = (By.XPATH, '/html/body/div[4]/div/div[2]/form/div[1]/div[10]/div[1]/div/div[2]/div/div/input')
+    SAVE_BUTTON = (By.CSS_SELECTOR, '[aria-label="Сохранить"]')
 
 
 class LeadPage(BasePage):
     loc = LeadLoc
-    locc = ContractСreateLoc
+    locc = ContractCreateLoc
 
     def change_office_1_maya(self):
         self.click(self.loc.CHANGE_BUTTON)
@@ -238,15 +237,16 @@ class LeadPage(BasePage):
         department_code_field.send_keys(code_num)
         # ввод "Кем выдан" документ
         self.find(self.loc.BY_WHOM_ISSUED_DOCUMENT)
-        #by_whom_issued_document.click()
         # ввод "Адрес регистрации"
         time.sleep(2)
         address_of_registration = self.find(self.loc.ADDRESS_OF_REGISTRATION)
         address_of_registration.click()
         address_of_registration.send_keys(fake_ru.address())
         # ввод контактов - телефон, мейл
+        self.scroll_in_modal(self.loc.MODAL_WINDOW)
         contact_type = self.find(self.loc.CONTACT_TYPE)
         contact_type.click()
+        time.sleep(2)
         mobile_number_chose = self.find(self.loc.MOBILE_NUMBER_CHOSE)
         mobile_number_chose.click()
 
@@ -259,5 +259,23 @@ class LeadPage(BasePage):
         input_mobile_number = self.find(self.loc.INPUT_MOBILE_NUMBER)
         input_mobile_number.click()
         input_mobile_number.send_keys(generate_phone_number())
-
-        time.sleep(8)
+        # прикрепляем фото
+        files_add = self.find((By.CSS_SELECTOR, 'input[type="file"]'))
+        # прикрепляемый файл должен быть в папке где храним код
+        files_add.send_keys('C:/Users/Stass/karman_test/pages/lead_page/Снимок экрана 2024-11-02 123632.png')
+        time.sleep(3)
+        # Клик по кнопки "Сохранить"
+        save_button = self.wait_for_element_visibility(self.loc.SAVE_BUTTON)
+        # Теперь ждем, пока элемент станет кликабельным
+        self.wait_clickable(save_button)
+        # Кликаем по кнопки сохранить
+        save_button.click()
+        time.sleep(5)
+        # Прокрутка до поля "Источник"
+        self.driver.execute_script("window.scrollBy(0, 500);")
+        time.sleep(2)
+        source_chose = self.find(self.loc.SOURCE_ID_CHOSE)
+        source_chose.click()
+        # выбираем источник 2Gis
+        source_find = self.driver.find_elements(*self.loc.SOURCE_ID_FIND)
+        (source_find[0]).click()

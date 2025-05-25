@@ -1,0 +1,6 @@
+[32mINFO    [0m WDM:logger.py:11 ====== WebDriver manager ======
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Get LATEST chromedriver version for google-chrome
+[32mINFO    [0m WDM:logger.py:11 Driver [C:\Users\Stass\.wdm\drivers\chromedriver\win64\136.0.7103.94\chromedriver-win32/chromedriver.exe] found in cache
+[1m[31mERROR   [0m root:base_page.py:199 Element with locator ('css selector', 'div.content-page li:nth-child(3) div.w-100 div') still visible after 30 seconds.
+[1m[31mERROR   [0m root:base_page.py:214 Текст не совпадает. Ожидаемый: Завершено, Фактический: Распечатка чека: Текст не совпадает. Ожидаемый: Завершено, Фактический: Распечатка чека
